@@ -46,8 +46,13 @@ class ViewController: UIViewController, UITableViewDataSource {
 //Filling the rows with content
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let myCell = tableView.dequeueReusableCell(withIdentifier: "cellInTableView")!
-        let holderText = favMovies[indexPath.row]
-        myCell.textLabel?.text = holderText
+        if booksLoaded == false {
+                let holderText = favMovies[indexPath.row]
+                myCell.textLabel?.text = holderText
+        } else {
+                let holderText = favBooks[indexPath.row]
+                myCell.textLabel?.text = holderText
+        }
         return myCell
     }
  
@@ -67,34 +72,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
 
     
-//----functions for tableViewDataSource protocol
-    func myCustomTableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if booksLoaded == false {
-            return favMovies.count
-        }
-        if booksLoaded == true {
-            return favBooks.count
-        } else {            //basically the same as a default case
-            return 0
-        }
-    }
-    
-    func myCustomTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let myCell = tableView.dequeueReusableCell(withIdentifier: "cellInTableView")
 
-        if booksLoaded == false {
-            let holderText = favMovies[indexPath.row]
-            myCell?.textLabel?.text = holderText
-        }
-        if booksLoaded == true {
-            let holderTextTwo = favBooks[indexPath.row]
-            myCell?.textLabel?.text = holderTextTwo
-        }
-    
-        return myCell!
-    }
-    
-    
 ////// Actions
     @IBAction func addButtonPressed(_ sender: Any) {
         favMovies.append(appendMovieTextField.text ?? "blah")
