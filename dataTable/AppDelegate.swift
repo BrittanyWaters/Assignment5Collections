@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  dataTable
 //
-//  Created by Sabrina.Sturteva on 4/2/19.
-//  Copyright © 2019 Sabrina Sturtevant. All rights reserved.
+//  Created by Brittany.Waters on 4/2/19.
+//  Copyright © 2019 Brittany Waters. All rights reserved.
 //
 
 import UIKit
